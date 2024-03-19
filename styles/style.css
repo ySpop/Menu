@@ -19,6 +19,7 @@
     --PrimaryColor: #D7D4FF; 
     --DarkerColor: #3a3583;
     --ParagraphColor:#555555;
+    --ToggleColor: #3a3583;
     --ParagraphFont: Titillium;
     --TitleFont: Poppins;
     --BoxShadow: 1px 1px 10px rgba(0, 0, 0, 0.212)
@@ -29,6 +30,7 @@
     --dark: #fff;
     --PrimaryColor: #3a3583; 
     --ParagraphColor:#dad2d2;
+    --ToggleColor: #D7D4FF;
     --BoxShadow: 2px 7px 13px #504e4e;
 }
 
@@ -205,6 +207,14 @@ main {
     transform: translateX(0) ;
 }
 
+.navbar-style.hidden {
+    display: none;
+}
+
+.person-style.hidden {
+    display: none;
+}
+
 .navbar-style>ul {
     list-style-type: none;
     display: flex;
@@ -323,12 +333,12 @@ main {
     border-radius: 50%;
 }
 
-button:hover {
+.navheader-style>button:hover {
     cursor: pointer;
     outline: none;
-    background-color: var(--DarkerColor);
+    background-color: var(--ToggleColor);
     transition: linear .2s all;
-    border: 3px solid var(--dark);
+    border: 2px solid var(--dark);
 }
 
 /* Max width pega do menor até o maior */
