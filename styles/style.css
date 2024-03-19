@@ -1,4 +1,10 @@
+@font-face {
+    font-family: Poppins;
+    src: url(../assets/fonts/Poppins/Poppins-Regular.ttf);
 
+    font-family:  Titillium;
+    src: url(../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf);
+}
 
 *{
     margin: 0;
@@ -7,14 +13,32 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+:root {
+    --white: #fff;
+    --dark: #000;
+    --PrimaryColor: #D7D4FF; 
+    --DarkerColor: #3a3583;
+    --ParagraphColor:#555555;
+    --ParagraphFont: Titillium;
+    --TitleFont: Poppins;
+    --BoxShadow: 1px 1px 10px rgba(0, 0, 0, 0.212)
+}
+
+[data-theme="dark"]{
+    --white: #000;
+    --dark: #fff;
+    --PrimaryColor: #3a3583; 
+    --ParagraphColor:#dad2d2;
+    --BoxShadow: 2px 7px 13px #504e4e;
+}
 
 body {
-    background-color: white;
+    background-color: var(--white);
 }
 
 header {
-    background-color: #D7D4FF;
-    height: 80vh;
+    background-color: var(--PrimaryColor);
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,12 +63,16 @@ header {
 
 .header-style__info>h1 {
     font-size: 26px;
+    color: var(--dark);
     line-height: 30px;
+    font-family: var(--TitleFont);
+    margin-top: 20px;
 }
 .header-style__info>p {
     font-size: 1rem;
-    color: #555555;
+    color: var(--ParagraphColor);
     line-height: 25px;
+    font-family: var(--ParagraphFont);
 }
 
 .header-style__info>button {
@@ -88,7 +116,7 @@ main {
     flex-direction: column;
     width: 100%;
     height: 330px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.212);
+    box-shadow: var(--BoxShadow);
 }
 
 /* SELETOR de classes pra evitar repetição */
@@ -132,13 +160,15 @@ main {
 }
 
 .card-text>span {
-    font-size: 23px;
+    font-size: 27px;
+    font-family: var(--TitleFont);
 }
 
 .card-text>p {
-    font-size: 13px;
-    color: gray;
+    font-size: 14px;
+    color: dark;
     text-align: justify;
+    font-family: var(--ParagraphFont);
 }
 
 .navheader-style {
@@ -147,7 +177,7 @@ main {
     z-index: 1;
     width: 100%;
     height: 50px;
-    background-color: #D7D4FF;
+    background-color: var(--white);
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.212);
     display: flex;
     justify-content: space-between;
@@ -163,7 +193,7 @@ main {
     bottom: 0;
     width: 90%;
     height: 100vh;
-    background-color: white;
+    background-color: var(--white);
     /* PROPRIEDADES DA TRANSIÇÃO */
     transform: translateX(-100%);
     transition: all 0.30s ease;
@@ -172,7 +202,7 @@ main {
 }
 
 .active {
- transform: translateX(0) ;
+    transform: translateX(0) ;
 }
 
 .navbar-style>ul {
@@ -187,7 +217,7 @@ main {
 
 .navbar-style>ul>li>a {
     text-decoration: none;
-    color: black;
+    color: var(--dark);
     outline: none;
     width: 160px;
     height: 100%;
@@ -202,14 +232,9 @@ main {
 .navbar-style>ul>li>a:hover {
     width: 100%;
     height: 100%;
-    color: black;
+    color: var(--dark);
     border-radius: 9px;
     background-color: red;
-}
-
-.picon {
-    color: white;
-    font-size: 28px;
 }
 
 .navbar-style>ul>li {
@@ -219,7 +244,7 @@ main {
 
 .listicon {
     font-size: 30px;
-    color: white;
+    color: var(--dark);
     display: block;
     cursor: pointer;
     z-index: 99999;
@@ -227,7 +252,7 @@ main {
 
 .picon {
     font-size: 30px;
-    color: white;
+    color: var(--dark);
     display: block;
     cursor: pointer;
     z-index: 99999;
@@ -240,7 +265,7 @@ main {
     bottom: 0;
     width: 90%;
     height: 100vh;
-    background-color: white;
+    background-color: var(--white);
     /* PROPRIEDADES DA TRANSIÇÃO */
     transform: translateX(100%);
     transition: all 0.30s ease;
@@ -250,7 +275,7 @@ main {
 
 .person-style>ul>li>a {
     text-decoration: none;
-    color: black;
+    color: var(--dark);
     outline: none;
     width: 160px;
     height: 100%;
@@ -266,7 +291,7 @@ main {
     width: 100%;
     height: 100%;
     background-color: red;
-    color: black;
+    color: var(--dark);
     border-radius: 9px;
 }
 
@@ -287,6 +312,23 @@ main {
 
 .open {
     transform: translateX(0);
+}
+
+/* LIGHT/DARK THEME */
+
+.navheader-style>button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+}
+
+button:hover {
+    cursor: pointer;
+    outline: none;
+    background-color: var(--DarkerColor);
+    transition: linear .2s all;
+    border: 3px solid var(--dark);
 }
 
 /* Max width pega do menor até o maior */
