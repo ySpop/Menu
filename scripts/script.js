@@ -7,6 +7,9 @@
 //   });
 // });
 
+const links = document.querySelector(".navbar-style");
+const listicon = document.querySelector(".listicon");
+
 document.addEventListener("DOMContentLoaded", function () {
   // Adiciona a classe para ocultar a segunda nav móvel
   document.querySelector(".navbar-style").classList.add("hidden");
@@ -14,8 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".listicon").addEventListener("click", function () {
     // Remove a classe para mostrar a segunda nav móvel
     document.querySelector(".navbar-style").classList.remove("hidden");
+
+    listicon.addEventListener("click", () => {
+        links.classList.toggle("active");
+      });
   });
 });
+
+const links1 = document.querySelector(".person-style");
+const picon = document.querySelector(".picon");
 
 document.addEventListener("DOMContentLoaded", function () {
   // Adiciona a classe para ocultar a segunda nav móvel
@@ -24,24 +34,14 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".picon").addEventListener("click", function () {
     // Remove a classe para mostrar a segunda nav móvel
     document.querySelector(".person-style").classList.remove("hidden");
+
+    picon.addEventListener("click", () => {
+      links1.classList.toggle("open");
+    });
   });
 });
 
-const links = document.querySelector(".navbar-style");
-const listicon = document.querySelector(".listicon");
-
-listicon.addEventListener("click", () => {
-  links.classList.toggle("active");
-});
-
-const links1 = document.querySelector(".person-style");
-const picon = document.querySelector(".picon");
-
-picon.addEventListener("click", () => {
-  links1.classList.toggle("open");
-});
-
-// DARKMODE
+// DARKMODE -----------------------------------------------
 
 const ThemeChanger = document.getElementById("toggle-theme");
 const themeSystem = localStorage.getItem("themeSystem") || "light";
@@ -56,6 +56,8 @@ ThemeChanger.addEventListener("click", () => {
   defineCurrentTheme(newTheme);
 });
 
+// DARKMODE -----------------------------------------------
+
 // function defineCurrentTheme(theme) {
 //   const darkSvg = "${C:EstudosProgramaçãoFrontEndMenuassetsicons}moon-stars-fill.svg";
 //   const lightSvg = "${C:EstudosProgramaçãoFrontEndMenuassetsicons}sun-fill.svg";
@@ -66,6 +68,10 @@ ThemeChanger.addEventListener("click", () => {
 //     ThemeChanger.innerHTML = lightSvg;
 //   }
 // }
+
+// DEFINIR TEMA ---------------------------------------------------------
+
+
 
 function defineCurrentTheme(theme) {
   const darkSvg =
@@ -84,3 +90,35 @@ function defineCurrentTheme(theme) {
 }
 
 defineCurrentTheme(themeSystem);
+
+
+
+// DEFINIR TEMA ---------------------------------------------------------
+
+// function setTheme(theme) {
+//       localStorage.setItem("theme", theme)
+//       document.documentElement.className = theme 
+// }
+
+// setTheme()
+
+// function getTheme() {
+//   if(localStorage.getItem("theme") === "theme_dark") {
+//     document.getElementById("toggle").classList.replace("bi-brightness-high-fill", "bi-moon-fill");
+//     setTheme("theme-light");
+
+//   } else {
+
+//     document.getElementById("toggle").classList.replace("bi-brightness-high-fill", "bi-moon-fill");
+//     setTheme("theme-dark")
+
+//   }
+// }
+
+(function () {
+  if (localStorage.getItem("theme") === "theme-dark") {
+    setTheme("theme-dark")
+  } else {
+    setTheme("theme-light")
+  }
+})();

@@ -22,7 +22,9 @@
     --ToggleColor: #3a3583;
     --ParagraphFont: Titillium;
     --TitleFont: Poppins;
-    --BoxShadow: 1px 1px 10px rgba(0, 0, 0, 0.212)
+    --BoxShadow: 1px 1px 10px rgba(0, 0, 0, 0.212);
+    --LinearTransition: linear .3s all;
+    --Transform: translateX(0px) scale(1.1);
 }
 
 [data-theme="dark"]{
@@ -85,6 +87,13 @@ header {
     border: none;
     border-radius: 8px;
     outline: none;
+}
+
+.header-style__info>button:hover {
+    background-color: var(--ToggleColor);
+    color: var(--white);
+    transition: var(--LinearTransition);
+    transform: var(--Transform);
 }
 
 .header-style__img {
@@ -204,15 +213,17 @@ main {
 }
 
 .active {
-    transform: translateX(0) ;
+    transform: translateX(0);
 }
 
 .navbar-style.hidden {
-    display: none;
+    transform: translateX(-100%);
+    transition: none;
 }
 
 .person-style.hidden {
-    display: none;
+    transform: translateX(100%);
+    transition: none;
 }
 
 .navbar-style>ul {
@@ -228,20 +239,18 @@ main {
 .navbar-style>ul>li>a {
     text-decoration: none;
     color: var(--dark);
-    outline: none;
     width: 160px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: linear .4s all;
+    transition: var(--LinearTransition);
     text-align: center;
     border-radius: 9px;
 }
 
 .navbar-style>ul>li>a:hover {
-    width: 100%;
-    height: 100%;
+    padding: 20px;
     color: var(--dark);
     border-radius: 9px;
     background-color: red;
@@ -366,6 +375,7 @@ main {
         align-items: center;
         flex-direction: column;
         justify-content: center;
+        margin-top: 0;
     }
 
     .header-style__info {
